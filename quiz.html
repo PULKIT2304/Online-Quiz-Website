@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Quiz Platform</title>
+    <link rel="stylesheet" href="styleQuiz.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">QuizKPT</div>
+        <nav>
+            <button class="nav-btn" data-target="home-section">Home</button>
+            <button class="nav-btn" data-target="quiz-section">Take Quiz</button>
+            <button class="nav-btn" data-target="add-section">Add Question</button>
+            <button class="nav-btn" data-target="results-section">Results</button>
+        </nav>
+    </header>
+    <main class="container">
+        <section id="home-section" class="section active">
+            <h1>Welcome to QuizKPT</h1>
+            <p>This is a simple online quiz platform where you can:</p>
+            <ul>
+                <li>Add your own questions</li>
+                <li>Attempt the quiz</li>
+                <li>See your score and performance history</li>
+            </ul>
+            <p>Use the navigation above to get started.</p>
+        </section>
+        <section id="quiz-section" class="section">
+            <h2>Take Quiz</h2>
+            <div id="quiz-info" class="info-box"></div>
+            <div id="quiz-box" class="card hidden">
+                <div id="question-text" class="question-text"></div>
+                <form id="options-form" class="options-list"></form>
+                <div class="quiz-controls">
+                    <button type="button" id="prev-btn" class="btn secondary">Previous</button>
+                    <button type="button" id="next-btn" class="btn">Next</button>
+                    <button type="button" id="submit-quiz-btn" class="btn primary">
+                        Submit Quiz
+                    </button>
+                </div>
+                <div id="quiz-progress" class="quiz-progress"></div>
+            </div>
+        </section>
+        <section id="add-section" class="section">
+            <h2>Add New Question</h2>
+            <form id="add-question-form" class="card">
+                <label>
+                    Question:
+                    <textarea id="new-question-text" required></textarea>
+                </label>
+                <div class="options-container">
+                    <label>Option 1: <input type="text" class="new-option" required /></label>
+                    <label>Option 2: <input type="text" class="new-option" required /></label>
+                    <label>Option 3: <input type="text" class="new-option" required /></label>
+                    <label>Option 4: <input type="text" class="new-option" required /></label>
+                </div>
+                <fieldset class="correct-option-fieldset">
+                    <legend>Select Correct Option</legend>
+                    <label><input type="radio" name="correct-option" value="0" required /> Option 1</label>
+                    <label><input type="radio" name="correct-option" value="1" /> Option 2</label>
+                    <label><input type="radio" name="correct-option" value="2" /> Option 3</label>
+                    <label><input type="radio" name="correct-option" value="3" /> Option 4</label>
+                </fieldset>
+                <button type="submit" class="btn primary">Add Question</button>
+                <p id="add-question-message" class="message" aria-live="polite"></p>
+            </form>
+            <div class="card" style="margin-top: 1.5rem;">
+                <h3>Manage Existing Questions</h3>
+                <div id="question-list-container">
+                    <p>Loading questions...</p>
+                </div>
+                <p id="question-delete-message" class="message" aria-live="polite"></p>
+            </div>
+        </section>
+        <section id="results-section" class="section">
+            <h2>Results</h2>
+            <button id="refresh-result-btn" class="btn">Refresh Records</button>
+            <button id="clear-history-btn" class="btn secondary">Clear History</button>
+            <p id="action-msg" class="message" aria-live="polite"></p>
+            <div id="latest-result" class="card info-box"></div>
+            <h3>Attempt History</h3>
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Date & Time</th>
+                        <th>Score</th>
+                        <th>Correct</th>
+                        <th>Total</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
+    <footer class="footer">
+        &copy; <span id="year"></span> QuizKPT • Simple Online Quiz Platform
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
